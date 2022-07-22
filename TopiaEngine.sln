@@ -4,17 +4,63 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopiaEngine", "TopiaEngine\TopiaEngine.vcxproj", "{C3A2EBF1-9190-4BB1-8224-996755657A45}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25} = {B8F07195-C41D-4A2D-92D0-479BC23E1D25}
+		{BB316FDD-C9D6-4948-8501-D30FE4512974} = {BB316FDD-C9D6-4948-8501-D30FE4512974}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopiaMath", "TopiaMath\TopiaMath.vcxproj", "{BB316FDD-C9D6-4948-8501-D30FE4512974}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25} = {B8F07195-C41D-4A2D-92D0-479BC23E1D25}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopiaCore", "TopiaCore\TopiaCore.vcxproj", "{B8F07195-C41D-4A2D-92D0-479BC23E1D25}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopiaEd", "TopiaEd\TopiaEd.vcxproj", "{6260019D-B87A-4015-80DE-41AE68BD36FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25} = {B8F07195-C41D-4A2D-92D0-479BC23E1D25}
+		{BB316FDD-C9D6-4948-8501-D30FE4512974} = {BB316FDD-C9D6-4948-8501-D30FE4512974}
+		{C3A2EBF1-9190-4BB1-8224-996755657A45} = {C3A2EBF1-9190-4BB1-8224-996755657A45}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C3A2EBF1-9190-4BB1-8224-996755657A45}.Debug|x64.ActiveCfg = Debug|x64
 		{C3A2EBF1-9190-4BB1-8224-996755657A45}.Debug|x64.Build.0 = Debug|x64
+		{C3A2EBF1-9190-4BB1-8224-996755657A45}.Debug|x86.ActiveCfg = Debug|x64
 		{C3A2EBF1-9190-4BB1-8224-996755657A45}.Release|x64.ActiveCfg = Release|x64
 		{C3A2EBF1-9190-4BB1-8224-996755657A45}.Release|x64.Build.0 = Release|x64
+		{C3A2EBF1-9190-4BB1-8224-996755657A45}.Release|x86.ActiveCfg = Release|x64
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Debug|x64.ActiveCfg = Debug|x64
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Debug|x64.Build.0 = Debug|x64
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Debug|x86.ActiveCfg = Debug|Win32
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Debug|x86.Build.0 = Debug|Win32
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Release|x64.ActiveCfg = Release|x64
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Release|x64.Build.0 = Release|x64
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Release|x86.ActiveCfg = Release|Win32
+		{BB316FDD-C9D6-4948-8501-D30FE4512974}.Release|x86.Build.0 = Release|Win32
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Debug|x64.ActiveCfg = Debug|x64
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Debug|x64.Build.0 = Debug|x64
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Debug|x86.ActiveCfg = Debug|Win32
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Debug|x86.Build.0 = Debug|Win32
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Release|x64.ActiveCfg = Release|x64
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Release|x64.Build.0 = Release|x64
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Release|x86.ActiveCfg = Release|Win32
+		{B8F07195-C41D-4A2D-92D0-479BC23E1D25}.Release|x86.Build.0 = Release|Win32
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Debug|x64.ActiveCfg = Debug|x64
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Debug|x64.Build.0 = Debug|x64
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Debug|x86.ActiveCfg = Debug|Win32
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Debug|x86.Build.0 = Debug|Win32
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Release|x64.ActiveCfg = Release|x64
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Release|x64.Build.0 = Release|x64
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Release|x86.ActiveCfg = Release|Win32
+		{6260019D-B87A-4015-80DE-41AE68BD36FD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

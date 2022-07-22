@@ -79,8 +79,6 @@ static_assert(sizeof(void*) == 8, "Invalid size of pointer");
 #include <random>
 #include <type_traits>
 
-// #define EASTL_ARCH_ATOMIC_HAS_64BIT 1
-
 #include <EABase/eabase.h>
 #include <EASTL/algorithm.h>
 #include <EASTL/array.h>
