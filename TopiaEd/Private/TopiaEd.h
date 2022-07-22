@@ -1,9 +1,11 @@
 #pragma once
 
+#include "resource.h"
+
+#include <Topia.h>
+
 #include <cstdint>
 #include <memory>
-
-#include "PlatformWindows.h"
 
 class WindowsEditor final
 {

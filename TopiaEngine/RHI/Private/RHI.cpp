@@ -1,10 +1,11 @@
 #include <RHI.h>
 
-namespace topia::gfx
+namespace topia
 {
     static constexpr u32 BACK_BUFFER_SIZE = 2;
 
     FGfxSettings GfxSettings;
+
     void InitializeGfxSettings(HWND Handle, u32 Width, u32 Height, bool bDebug, bool bTearing)
     {
         GfxSettings.WindowHandle = Handle;
@@ -73,8 +74,8 @@ namespace topia::gfx
                 D3D12_INFO_QUEUE_FILTER InfoQueueFilter = {};
                 InfoQueueFilter.DenyList.NumSeverities = _countof(Severities);
                 InfoQueueFilter.DenyList.pSeverityList = Severities;
-                InfoQueueFilter.DenyList.NumIDs = _countof(DenyIds);
-                InfoQueueFilter.DenyList.pIDList = DenyIds;
+                InfoQueueFilter.DenyList.NumIDs        = _countof(DenyIds);
+                InfoQueueFilter.DenyList.pIDList       = DenyIds;
 
                 ASSERT_SUCCEEDED(pInfoQueue->PushStorageFilter(&InfoQueueFilter));
             }
@@ -86,22 +87,22 @@ namespace topia::gfx
             D3D12_COMMAND_QUEUE_DESC CommandQueueDesc;
 
             /** Graphics Command Queue. */
-            CommandQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
-            CommandQueueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
+            CommandQueueDesc.Type     = D3D12_COMMAND_LIST_TYPE_DIRECT;
+            CommandQueueDesc.Flags    = D3D12_COMMAND_QUEUE_FLAG_NONE;
             CommandQueueDesc.NodeMask = 0;
             CommandQueueDesc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL;
             ASSERT_SUCCEEDED(GfxContext.Device->CreateCommandQueue(&CommandQueueDesc, IID_PPV_ARGS(&GfxContext.GraphicsCommandQueue)));
 
             /** Graphics Compute Queue. */
-            CommandQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_COMPUTE;
-            CommandQueueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
+            CommandQueueDesc.Type     = D3D12_COMMAND_LIST_TYPE_COMPUTE;
+            CommandQueueDesc.Flags    = D3D12_COMMAND_QUEUE_FLAG_NONE;
             CommandQueueDesc.NodeMask = 0;
             CommandQueueDesc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL;
             ASSERT_SUCCEEDED(GfxContext.Device->CreateCommandQueue(&CommandQueueDesc, IID_PPV_ARGS(&GfxContext.ComputeCommandQueue)));
 
             /** Graphics Copy Queue. */
-            CommandQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_COPY;
-            CommandQueueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
+            CommandQueueDesc.Type     = D3D12_COMMAND_LIST_TYPE_COPY;
+            CommandQueueDesc.Flags    = D3D12_COMMAND_QUEUE_FLAG_NONE;
             CommandQueueDesc.NodeMask = 0;
             CommandQueueDesc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL;
             ASSERT_SUCCEEDED(GfxContext.Device->CreateCommandQueue(&CommandQueueDesc, IID_PPV_ARGS(&GfxContext.CopyCommandQueue)));
@@ -112,21 +113,21 @@ namespace topia::gfx
             TRefCountPtr<IDXGISwapChain1> pSwapChain1;
 
             DXGI_SWAP_CHAIN_DESC1 SwapChainDesc1 = {};
-            SwapChainDesc1.Width = GfxSettings.WindowWidth;
-            SwapChainDesc1.Height = GfxSettings.WindowHeight;
-            SwapChainDesc1.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-            SwapChainDesc1.Stereo = FALSE;
-            SwapChainDesc1.SampleDesc = { 1, 0 };
+            SwapChainDesc1.Width       = GfxSettings.WindowWidth;
+            SwapChainDesc1.Height      = GfxSettings.WindowHeight;
+            SwapChainDesc1.Format      = DXGI_FORMAT_R8G8B8A8_UNORM;
+            SwapChainDesc1.Stereo      = FALSE;
+            SwapChainDesc1.SampleDesc  = { 1, 0 };
             SwapChainDesc1.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
             SwapChainDesc1.BufferCount = BACK_BUFFER_SIZE;
-            SwapChainDesc1.Scaling = DXGI_SCALING_STRETCH;
-            SwapChainDesc1.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
-            SwapChainDesc1.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED;
-            SwapChainDesc1.Flags = GfxSettings.bEnableTearing ? DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING : 0;
+            SwapChainDesc1.Scaling     = DXGI_SCALING_STRETCH;
+            SwapChainDesc1.SwapEffect  = DXGI_SWAP_EFFECT_FLIP_DISCARD;
+            SwapChainDesc1.AlphaMode   = DXGI_ALPHA_MODE_UNSPECIFIED;
+            SwapChainDesc1.Flags       = GfxSettings.bEnableTearing ? DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING : 0;
 
             ASSERT_SUCCEEDED(g_DXGIFactory4->CreateSwapChainForHwnd(GfxContext.GraphicsCommandQueue.Get(), GfxSettings.WindowHandle, &SwapChainDesc1, nullptr, nullptr, &pSwapChain1))
-                ASSERT_SUCCEEDED(g_DXGIFactory4->MakeWindowAssociation(GfxSettings.WindowHandle, DXGI_MWA_NO_ALT_ENTER))
-                ASSERT_SUCCEEDED(pSwapChain1->QueryInterface(IID_PPV_ARGS(&g_DXGISwapChain4)))
+            ASSERT_SUCCEEDED(g_DXGIFactory4->MakeWindowAssociation(GfxSettings.WindowHandle, DXGI_MWA_NO_ALT_ENTER))
+            ASSERT_SUCCEEDED(pSwapChain1->QueryInterface(IID_PPV_ARGS(&g_DXGISwapChain4)))
         }
     }
 } // namespace topia

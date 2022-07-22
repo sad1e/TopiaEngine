@@ -2,54 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="Common\Public\FileSystem\FileSystem.h" />
-    <ClInclude Include="Common\Public\Allocators.h" />
-    <ClInclude Include="Common\Public\Asserts.h" />
-    <ClInclude Include="Common\Public\FixedVector.h" />
-    <ClInclude Include="Common\Public\HashCombine.h" />
-    <ClInclude Include="Common\Public\MiscMacros.h" />
-    <ClInclude Include="Common\Public\Noncopyable.h" />
-    <ClInclude Include="Common\Public\Platforms.h" />
-    <ClInclude Include="Common\Public\RefCounting.h" />
-    <ClInclude Include="Common\Public\StringUtils.h" />
-    <ClInclude Include="Common\Public\Topia.h" />
-    <ClInclude Include="Math\Public\DVec3.h" />
-    <ClInclude Include="Math\Public\EigenValueSymmetric.h" />
-    <ClInclude Include="Math\Public\FindRoot.h" />
-    <ClInclude Include="Math\Public\Float2.h" />
-    <ClInclude Include="Math\Public\Float3.h" />
-    <ClInclude Include="Math\Public\Float4.h" />
-    <ClInclude Include="Math\Public\GaussianElimination.h" />
-    <ClInclude Include="Math\Public\HalfFloat.h" />
-    <ClInclude Include="Math\Public\Mat44.h" />
-    <ClInclude Include="Math\Public\MathTypes.h" />
-    <ClInclude Include="Math\Public\MathUtils.h" />
-    <ClInclude Include="Math\Public\Matrix.h" />
-    <ClInclude Include="Math\Public\Quat.h" />
-    <ClInclude Include="Math\Public\Swizzle.h" />
-    <ClInclude Include="Math\Public\TopiaMath.h" />
-    <ClInclude Include="Math\Public\UVec4.h" />
-    <ClInclude Include="Math\Public\UVec8.h" />
-    <ClInclude Include="Math\Public\Vec3.h" />
-    <ClInclude Include="Math\Public\Vec4.h" />
-    <ClInclude Include="Math\Public\Vec8.h" />
-    <ClInclude Include="Math\Public\Vector.h" />
-    <ClInclude Include="TopiaEd\Public\PlatformWindows.h" />
-    <ClInclude Include="TopiaEd\Public\WindowsEditor.h" />
     <ClInclude Include="RHI\Public\RHI.h" />
     <ClInclude Include="RHI\Public\d3dx12.h" />
+    <ClInclude Include="RenderCore\Public\RenderCore.h" />
+    <ClInclude Include="Engine\Public\StaticMesh.h" />
+    <ClInclude Include="RHI\Public\RHIForwardDecl.h" />
+    <ClInclude Include="Engine\Public\EngineForwardDecl.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Common\Public\Misc.inl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Common\Private\Topia.cpp" />
     <ClCompile Include="Common\Private\FileSystem\FileSystem.cpp" />
-    <ClCompile Include="Common\Private\Allocators.cpp" />
-    <ClCompile Include="Common\Private\StringUtils.cpp" />
-    <ClCompile Include="Math\Private\TopiaMath.cpp" />
-    <ClCompile Include="Math\Private\UVec4.cpp" />
-    <ClCompile Include="Math\Private\Vec3.cpp" />
-    <ClCompile Include="TopiaEd\Private\WindowsEditor.cpp" />
     <ClCompile Include="RHI\Private\RHI.cpp" />
   </ItemGroup>
 </Project>

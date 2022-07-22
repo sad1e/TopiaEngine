@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Public\DVec3.h" />
+    <ClInclude Include="Public\EigenValueSymmetric.h" />
+    <ClInclude Include="Public\FindRoot.h" />
+    <ClInclude Include="Public\Float2.h" />
+    <ClInclude Include="Public\Float3.h" />
+    <ClInclude Include="Public\Float4.h" />
+    <ClInclude Include="Public\GaussianElimination.h" />
+    <ClInclude Include="Public\HalfFloat.h" />
+    <ClInclude Include="Public\Mat44.h" />
+    <ClInclude Include="Public\MathTypes.h" />
+    <ClInclude Include="Public\MathUtils.h" />
+    <ClInclude Include="Public\Matrix.h" />
+    <ClInclude Include="Public\Quat.h" />
+    <ClInclude Include="Public\Swizzle.h" />
+    <ClInclude Include="Public\TopiaMath.h" />
+    <ClInclude Include="Public\UVec4.h" />
+    <ClInclude Include="Public\UVec8.h" />
+    <ClInclude Include="Public\Vec3.h" />
+    <ClInclude Include="Public\Vec4.h" />
+    <ClInclude Include="Public\Vec8.h" />
+    <ClInclude Include="Public\Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Private\TopiaMath.cpp" />
+    <ClCompile Include="Private\UVec4.cpp" />
+    <ClCompile Include="Private\Vec3.cpp" />
+  </ItemGroup>
+</Project>

@@ -19,15 +19,15 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -38,20 +38,18 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="PropertySheet.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="PropertySheet.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(projectDir)Common\Public;$(projectDir)Math\Public;$(projectDir)TopiaEd\Public;$(projectDir)RenderCore\Public;$(projectDir)RHI\Public;$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Intermediate\</IntDir>
+    <IncludePath>$(solutionDir)TopiaCore\Public;$(solutionDir)TopiaMath\Public;$(projectDir)Common\Public;$(projectDir)Engine\Public;$(projectDir)TopiaEd\Public;$(projectDir)RenderCore\Public;$(projectDir)RHI\Public;$(IncludePath)</IncludePath>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Intermediate\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(projectDir)Common\Public;$(projectDir)Math\Public;$(projectDir)TopiaEd\Public;$(projectDir)RenderCore\Public;$(projectDir)RHI\Public;$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Intermediate\</IntDir>
+    <IncludePath>$(solutionDir)TopiaCore\Public;$(solutionDir)TopiaMath\Public;$(projectDir)Common\Public;$(projectDir)Engine\Public;$(projectDir)TopiaEd\Public;$(projectDir)RenderCore\Public;$(projectDir)RHI\Public;$(IncludePath)</IncludePath>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Intermediate\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <VcpkgTriplet>x64-windows</VcpkgTriplet>
@@ -72,11 +70,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -87,66 +86,28 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Common\Public\Allocators.h" />
-    <ClInclude Include="Common\Public\Asserts.h" />
     <ClInclude Include="Common\Public\FileSystem\FileSystem.h" />
-    <ClInclude Include="Common\Public\FixedVector.h" />
-    <ClInclude Include="Common\Public\HashCombine.h" />
-    <ClInclude Include="Common\Public\MiscMacros.h" />
-    <ClInclude Include="Common\Public\Noncopyable.h" />
-    <ClInclude Include="Common\Public\Platforms.h" />
-    <ClInclude Include="Common\Public\RefCounting.h" />
-    <ClInclude Include="Common\Public\StringUtils.h" />
-    <ClInclude Include="Common\Public\Topia.h" />
-    <ClInclude Include="Math\Public\DVec3.h" />
-    <ClInclude Include="Math\Public\EigenValueSymmetric.h" />
-    <ClInclude Include="Math\Public\FindRoot.h" />
-    <ClInclude Include="Math\Public\Float2.h" />
-    <ClInclude Include="Math\Public\Float3.h" />
-    <ClInclude Include="Math\Public\Float4.h" />
-    <ClInclude Include="Math\Public\GaussianElimination.h" />
-    <ClInclude Include="Math\Public\HalfFloat.h" />
-    <ClInclude Include="Math\Public\Mat44.h" />
-    <ClInclude Include="Math\Public\MathTypes.h" />
-    <ClInclude Include="Math\Public\MathUtils.h" />
-    <ClInclude Include="Math\Public\Matrix.h" />
-    <ClInclude Include="Math\Public\Quat.h" />
-    <ClInclude Include="Math\Public\Swizzle.h" />
-    <ClInclude Include="Math\Public\TopiaMath.h" />
-    <ClInclude Include="Math\Public\UVec4.h" />
-    <ClInclude Include="Math\Public\UVec8.h" />
-    <ClInclude Include="Math\Public\Vec3.h" />
-    <ClInclude Include="Math\Public\Vec4.h" />
-    <ClInclude Include="Math\Public\Vec8.h" />
-    <ClInclude Include="Math\Public\Vector.h" />
+    <ClInclude Include="Engine\Public\EngineForwardDecl.h" />
+    <ClInclude Include="Engine\Public\StaticMesh.h" />
+    <ClInclude Include="RenderCore\Public\RenderCore.h" />
     <ClInclude Include="RHI\Public\d3dx12.h" />
     <ClInclude Include="RHI\Public\RHI.h" />
-    <ClInclude Include="TopiaEd\Public\PlatformWindows.h" />
-    <ClInclude Include="TopiaEd\Public\WindowsEditor.h" />
+    <ClInclude Include="RHI\Public\RHIForwardDecl.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Common\Public\Misc.inl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Common\Private\Allocators.cpp" />
     <ClCompile Include="Common\Private\FileSystem\FileSystem.cpp" />
-    <ClCompile Include="Common\Private\StringUtils.cpp" />
-    <ClCompile Include="Common\Private\Topia.cpp" />
-    <ClCompile Include="Math\Private\TopiaMath.cpp" />
-    <ClCompile Include="Math\Private\UVec4.cpp" />
-    <ClCompile Include="Math\Private\Vec3.cpp" />
     <ClCompile Include="RHI\Private\RHI.cpp" />
-    <ClCompile Include="TopiaEd\Private\WindowsEditor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

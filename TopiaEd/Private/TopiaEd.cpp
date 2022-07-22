@@ -1,15 +1,17 @@
-#include "WindowsEditor.h"
+// TopiaEd.cpp : Defines the entry point for the application.
+//
+
+#include "TopiaEdPCH.h"
+#include "framework.h"
+#include "TopiaEd.h"
+
 #include <Asserts.h>
 #include <TopiaMath.h>
-
-//#include <RHI.h>
-//#include "SceneRenderer.h"
 
 const wchar_t* TopiaEngineClassName = L"TopiaEngineWindowsClass";
 const wchar_t* TopiaEngineTitleName = L"Topia Engine";
 
 std::unique_ptr<WindowsEditor> g_WindowsEditor = nullptr;
-//std::unique_ptr<topia::FSceneRenderer> g_SceneRenderer = nullptr;
 
 HWND WindowsEditor::HWnd = nullptr;
 
@@ -41,7 +43,7 @@ void WindowsEditor::Init(HINSTANCE InHInstance, int InNCmdShow)
 
 	ASSERT(0 != ::RegisterClassEx(&wcex), "Unable to register a window");
 
-	RECT rect = {0, 0, static_cast<LONG>(GetClientWidth()), static_cast<LONG>(GetClientHeight())};
+	RECT rect = { 0, 0, static_cast<LONG>(GetClientWidth()), static_cast<LONG>(GetClientHeight()) };
 	AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
 
 	HWnd = CreateWindow(TopiaEngineClassName, TopiaEngineTitleName, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, Width, Height, nullptr, nullptr, InHInstance, nullptr);
@@ -86,21 +88,21 @@ LRESULT WindowsEditor::MsgProc(HWND InHWND, UINT InMessage, WPARAM InWParam, LPA
 {
 	switch (InMessage)
 	{
-		case WM_ACTIVATE:
-		{
-			bActive = (WA_INACTIVE != (LOWORD(InWParam)));
-			break;
-		}
-		case WM_SIZE:
-			// Display::Resize((UINT)(UINT64)lParam & 0xFFFF, (UINT)(UINT64)lParam >> 16);
-			break;
+	case WM_ACTIVATE:
+	{
+		bActive = (WA_INACTIVE != (LOWORD(InWParam)));
+		break;
+	}
+	case WM_SIZE:
+		// Display::Resize((UINT)(UINT64)lParam & 0xFFFF, (UINT)(UINT64)lParam >> 16);
+		break;
 
-		case WM_CLOSE:
-			PostQuitMessage(0);
-			break;
+	case WM_CLOSE:
+		PostQuitMessage(0);
+		break;
 
-		default:
-			return DefWindowProc(InHWND, InMessage, InWParam, InLParam);
+	default:
+		return DefWindowProc(InHWND, InMessage, InWParam, InLParam);
 	}
 
 	return 0;
@@ -122,9 +124,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
 		HWND ConsoleHwnd = GetConsoleWindow();
 		if (ConsoleHwnd)
 		{
-			if( HMENU hMenu = GetSystemMenu( ConsoleHwnd, FALSE ) )
+			if (HMENU hMenu = GetSystemMenu(ConsoleHwnd, FALSE))
 			{
-				EnableMenuItem( hMenu, SC_CLOSE, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED );
+				EnableMenuItem(hMenu, SC_CLOSE, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
 			}
 		}
 	}

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Public\Allocators.h" />
+    <ClInclude Include="Public\Asserts.h" />
+    <ClInclude Include="Public\FixedVector.h" />
+    <ClInclude Include="Public\HashCombine.h" />
+    <ClInclude Include="Public\MiscMacros.h" />
+    <ClInclude Include="Public\Noncopyable.h" />
+    <ClInclude Include="Public\Platforms.h" />
+    <ClInclude Include="Public\RefCounting.h" />
+    <ClInclude Include="Public\StringUtils.h" />
+    <ClInclude Include="Public\Topia.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\Misc.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Private\Topia.cpp" />
+    <ClCompile Include="Private\Allocators.cpp" />
+    <ClCompile Include="Private\StringUtils.cpp" />
+  </ItemGroup>
+</Project>
